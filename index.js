@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: "./config/config.env" })
 
-database.connectDatabase().then(() => console.log('database connected'));
+database.connectDatabase();
 
 const server = new ApolloServer({
   typeDefs,
