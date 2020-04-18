@@ -7,7 +7,7 @@ class Database {
         useNewUrlParser: true,
         useUnifiedTopology: true
       });
-      console.log('Database connected');
+      console.log('Database connected success');
     } catch (error) {
       console.log(error);
     }
