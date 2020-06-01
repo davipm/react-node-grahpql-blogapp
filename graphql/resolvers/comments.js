@@ -4,6 +4,14 @@ import Post from "../../models/Post";
 
 const commentResolver = {
   Mutation: {
+    /**
+     *
+     * @param _
+     * @param postId
+     * @param body
+     * @param context
+     * @returns {Promise<*>}
+     */
     async createComment(_, { postId, body }, context) {
       const { username } = checkAuth(context);
       if (body.trim() === "") {
@@ -29,6 +37,14 @@ const commentResolver = {
       }
     },
 
+    /**
+     *
+     * @param _
+     * @param postId
+     * @param commentId
+     * @param context
+     * @returns {Promise<*>}
+     */
     async deleteComment(_, { postId, commentId }, context) {
       const { username } = checkAuth(context);
       const post = await Post.findById(postId);

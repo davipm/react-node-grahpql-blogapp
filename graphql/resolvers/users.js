@@ -19,6 +19,15 @@ function generateToken(user) {
 
 const usersResolvers = {
   Mutation: {
+    /**
+     *
+     * @param _
+     * @param username
+     * @param password
+     * @param confirmPassword
+     * @param email
+     * @returns {Promise<any>}
+     */
     async register(
       _,
       { registerInput: { username, password, confirmPassword, email } }
@@ -61,6 +70,13 @@ const usersResolvers = {
       };
     },
 
+    /**
+     *
+     * @param _
+     * @param username
+     * @param password
+     * @returns {Promise<{[p: string]: *}>}
+     */
     async login(_, { username, password }) {
       const { errors, valid } = validateLoginInput(username, password);
       if (!valid) {
