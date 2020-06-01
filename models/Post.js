@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { model, Schema } from "mongoose";
 
 const postSchema = new Schema({
   username: String,
@@ -8,19 +8,19 @@ const postSchema = new Schema({
     {
       body: String,
       username: String,
-      createdAt: String
-    }
+      createdAt: String,
+    },
   ],
   likes: [
     {
       username: String,
-      createdAt: String
-    }
+      createdAt: String,
+    },
   ],
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
-  }
+    ref: "users",
+  },
 });
 
-export default model('Post', postSchema);
+export default model("Post", postSchema);

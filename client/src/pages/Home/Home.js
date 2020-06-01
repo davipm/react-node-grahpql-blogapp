@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import HelloWorld from "../../components/HelloWorld";
 
 function Home() {
   return (
     <div>
-      <p>Home</p>
+      <HelloWorld />
     </div>
   );
 }

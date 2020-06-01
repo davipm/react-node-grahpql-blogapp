@@ -11,7 +11,7 @@ const typeDefs = gql`
     likeCount: Int!
     commentCount: Int!
   }
-  
+
   type Comment {
     id: ID!
     createAt: String!
@@ -24,7 +24,7 @@ const typeDefs = gql`
     createAt: String!
     username: String!
   }
-  
+
   type User {
     id: ID!
     email: String!
@@ -32,29 +32,29 @@ const typeDefs = gql`
     username: String!
     createAt: String!
   }
-  
+
   input RegisterInput {
     username: String!
     password: String!
     confirmPassword: String!
     email: String!
   }
-  
+
   type Query {
     getPosts: [Post]
     getPost(positId: ID!): Post
   }
-  
+
   type Mutation {
-    register(registerInput: RegisterInput) : User!
-    login(username: String!, password: String!) : User!
+    register(registerInput: RegisterInput): User!
+    login(username: String!, password: String!): User!
     createPost(body: String!): Post!
     deletePost(postId: ID!): String!
     createComment(postId: ID!, body: String!): Post!
     deleteComment(postId: ID!, commentId: ID!): Comment!
     likePost(postId: ID!): Post!
   }
-  
+
   type Subscription {
     newPost: Post!
   }
