@@ -65,6 +65,20 @@ const usersResolvers = {
         errors.general = "User not found";
         throw new UserInputError('User not found', { errors });
       }
+
+      const match = await bcryptjs.compare(password, user.password);
+      if (!match) {
+        errors.general = 'Wrong credentials';
+        throw new UserInputError('Wrong crendetials', { errors })
+      }
+
+      const token = generateToken(user);
+
+      return {
+        ...user._doc,
+        id: user._id,
+        token
+      }
     }
   }
 }

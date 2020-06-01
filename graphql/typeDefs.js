@@ -6,8 +6,25 @@ const typeDefs = gql`
     body: String!
     createAt: String!
     username: String!
+    comments: String!
+    likes: [Like]!
+    likeCount: Int!
+    commentCount: Int!
+  }
+  
+  type Comment {
+    id: ID!
+    createAt: String!
+    username: String!
+    body: String!
   }
 
+  type Like {
+    id: ID!
+    createAt: String!
+    username: String!
+  }
+  
   type User {
     id: ID!
     email: String!
@@ -24,8 +41,8 @@ const typeDefs = gql`
   }
   
   type Query {
-    posts: [Post]
-    post(positId: ID!): Post
+    getPosts: [Post]
+    getPost(positId: ID!): Post
   }
   
   type Mutation {
@@ -33,6 +50,13 @@ const typeDefs = gql`
     login(username: String!, password: String!) : User!
     createPost(body: String!): Post!
     deletePost(postId: ID!): String!
+    createComment(postId: ID!, body: String!): Post!
+    deleteComment(postId: ID!, commentId: ID!): Comment!
+    likePost(postId: ID!): Post!
+  }
+  
+  type Subscription {
+    newPost: Post!
   }
 `;
 

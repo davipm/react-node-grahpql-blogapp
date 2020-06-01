@@ -115,3 +115,4 @@ dist
 .pnp.*
 
 .idea
+./config/config.env
