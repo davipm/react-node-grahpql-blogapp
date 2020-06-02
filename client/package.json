@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "apollo-client": "^2.6.10"
+    "apollo-client": "^2.6.10",
+    "graphql-tag": "^2.10.3"
   }
 }
