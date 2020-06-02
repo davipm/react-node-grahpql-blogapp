@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
+import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./store/auth";
 import "semantic-ui-css/semantic.min.css";
 import "./assets/styles/main.css";
@@ -13,7 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <AuthProvider>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </AuthProvider>
     </ApolloProvider>
   </React.StrictMode>,
